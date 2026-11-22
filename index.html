@@ -338,39 +338,66 @@
             <img src="images/flower-corner-left.png" alt="ورود زاوية يسرى" decoding="async" class="absolute -bottom-14 sm:-bottom-18 -left-6 sm:-left-8 w-44 sm:w-60 h-auto object-contain pointer-events-none z-30">
         </section>
 
-        <!-- WELCOME SECTION -->
-        <section id="welcomeSection" class="relative z-20 w-full min-h-[580px] sm:min-h-[640px] -mt-20 sm:mt-[-88px] pt-16 sm:pt-20 pb-16 px-6 flex flex-col justify-start items-center text-center overflow-visible reveal">
+        <!-- WELCOME & INVITATION DETAILS SECTION -->
+        <section id="welcomeSection" class="relative z-20 w-full -mt-20 sm:mt-[-88px] pt-16 sm:pt-20 pb-16 px-6 flex flex-col justify-start items-center text-center overflow-visible reveal">
             <!-- Background Image -->
             <img src="images/welcome-bg.png" alt="خلفية الترحيب" decoding="async" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
 
             <!-- Content Container Layer -->
-            <div class="relative z-10 max-w-sm mx-auto space-y-6 flex flex-col items-center justify-start pt-4">
+            <div class="relative z-10 max-w-sm mx-auto space-y-6 flex flex-col items-center justify-start pt-6 w-full">
                 
-                <!-- Main Invitation Verses -->
-                <div class="luxury-script-text text-xl sm:text-2xl space-y-2 leading-relaxed max-w-[340px] mx-auto stagger-item" style="--reveal-delay: 80ms;">
-                    <p>في ليلةٍ خَطّهــا القَدر بأجمَــل الألـوانِ،</p>
-                    <p>تلتَقــي القُلــوبُ لِتَكتبَ بِدايَــة فَصـلٍ جَديد</p>
-                    <p>مِلؤُه المَحبَة والأنــس، بِوجود مِن نُحـــبْ</p>
-                </div>
-
-                <!-- Highlighted Date -->
-                <div class="py-1 stagger-item" style="--reveal-delay: 200ms;">
-                    <span class="luxury-script-text text-2xl sm:text-3xl tracking-widest dir-ltr inline-block">
-                        26.11.2026
-                    </span>
-                </div>
-
-                <!-- Updated Welcome Verse -->
-                <div class="space-y-4 pt-2 stagger-item" style="--reveal-delay: 320ms;">
+                <!-- Welcome Verse & Divider -->
+                <div class="space-y-4 pt-2 stagger-item" style="--reveal-delay: 120ms;">
                     <div class="font-naskh-kashida text-base sm:text-lg leading-loose max-w-[330px] mx-auto px-2 space-y-1 text-center">
-                        <p>يوم مختلف و ليلة جميلة</p>
-                        <p>يضوي الفرح بعالي سماها</p>
-                        <p>من قلب يغمره السعادة والحُب</p>
+                        <p>يَـــــوْمٌ مٌـخْـتَـلِـفٌ وَ لَـيْـلَـةٌ جَـمِـيـلَـــــةْ</p>
+                        <p>يُـــضْـوِي الـفَـرَحُ بِـعَـالِـي سَـمَـاهَـــــا</p>
+                        <p>مِـنْ قَـلْـبٍ يَـغْـمُـرُهُ الـسَّـعَـادَةُ وَالـحُـبُّ</p>
                     </div>
 
                     <!-- Divider Image -->
-                    <div class="flex items-center justify-center pt-2 soft-zoom-item" style="--reveal-delay: 420ms;">
+                    <div class="flex items-center justify-center pt-2 soft-zoom-item" style="--reveal-delay: 260ms;">
                         <img src="images/divider.png" alt="فاصل زخرفي" decoding="async" class="w-36 h-auto object-contain opacity-85">
+                    </div>
+                </div>
+
+                <!-- Invitation Texts & Graphics Below Divider -->
+                <div class="space-y-5 pt-2 w-full flex flex-col items-center">
+                    <div class="space-y-1.5 text-gold-700 font-tajawal w-full flex flex-col items-center stagger-item" style="--reveal-delay: 320ms;">
+                        <p class="text-base sm:text-lg font-bold tracking-tight pt-0.5">تتشــــــــــــــرف</p>
+                        <div class="pt-2 flex justify-center items-center soft-zoom-item" style="--reveal-delay: 380ms;">
+                            <img src="images/um-ibrahim.png" alt="أم إبراهيم" decoding="async" class="w-36 sm:w-44 h-auto object-contain filter drop-shadow-sm">
+                        </div>
+                    </div>
+
+                    <div class="stagger-item" style="--reveal-delay: 440ms;">
+                        <p class="text-xs sm:text-sm font-normal text-gold-700 font-tajawal tracking-wide">
+                            بدعوتكم لحضور حفل ملجة وعقد قران
+                        </p>
+                    </div>
+
+                    <div class="py-2 flex justify-center items-center w-full soft-zoom-item" style="--reveal-delay: 500ms;">
+                        <img src="images/names.png" alt="مخطوطة أسماء العروسين أحمد وميرة" decoding="async" class="w-56 sm:w-64 h-auto object-contain drop-shadow-sm">
+                    </div>
+
+                    <div class="space-y-4 text-gold-700 font-tajawal w-full stagger-item" style="--reveal-delay: 560ms;">
+                        <p class="text-sm sm:text-base font-medium">وذلك بمشيئة الله</p>
+
+                        <div class="grid grid-cols-3 gap-2 items-start justify-items-center pt-2 max-w-[330px] mx-auto w-full">
+                            <div class="flex flex-col items-center gap-1.5 soft-zoom-item" style="--reveal-delay: 600ms;">
+                                <img src="images/icon-day.png" alt="يوم الخميس" decoding="async" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mix-blend-multiply">
+                                <span class="text-xs sm:text-sm font-bold text-gold-700">يوم الخميس</span>
+                            </div>
+
+                            <div class="flex flex-col items-center gap-1.5 soft-zoom-item" style="--reveal-delay: 660ms;">
+                                <img src="images/icon-date.png" alt="26.11.2026" decoding="async" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mix-blend-multiply">
+                                <span class="text-xs sm:text-sm font-bold text-gold-700 dir-ltr">26.11.2026</span>
+                            </div>
+
+                            <div class="flex flex-col items-center gap-1.5 soft-zoom-item" style="--reveal-delay: 720ms;">
+                                <img src="images/icon-time.png" alt="8:00 مساءً" decoding="async" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mix-blend-multiply">
+                                <span class="text-xs sm:text-sm font-bold text-bronze/90">8:00 مساءً</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -435,88 +462,6 @@
             </div>
         </section>
 
-        <!-- INVITATION CARD SECTION -->
-        <section id="invitationCard" class="pb-12 pt-10 px-6 sm:px-8 text-center bg-[#eae3dc] relative flex flex-col items-center justify-center overflow-hidden reveal z-20">
-            <img src="images/names-bg.png" alt="خلفية الأسماء" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-100 pointer-events-none z-0">
-
-            <div class="relative z-10 space-y-5 max-w-sm mx-auto flex flex-col items-center w-full">
-                <div class="space-y-1.5 text-gold-700 font-tajawal w-full flex flex-col items-center stagger-item" style="--reveal-delay: 80ms;">
-                    <p class="text-xs sm:text-sm font-normal tracking-wide">بكل حب ومودة</p>
-                    <p class="text-base sm:text-lg font-bold tracking-tight pt-0.5">تتشرف</p>
-                    <div class="pt-1 flex justify-center items-center soft-zoom-item" style="--reveal-delay: 180ms;">
-                        <img src="images/um-ibrahim.png" alt="أم إبراهيم" decoding="async" class="w-36 sm:w-44 h-auto object-contain filter drop-shadow-sm">
-                    </div>
-                </div>
-
-                <div class="stagger-item" style="--reveal-delay: 260ms;">
-                    <p class="text-xs sm:text-sm font-normal text-gold-700 font-tajawal tracking-wide">
-                        بدعوتكم لحضور حفل ملجة وعقد قران
-                    </p>
-                </div>
-
-                <div class="py-2 flex justify-center items-center w-full soft-zoom-item" style="--reveal-delay: 340ms;">
-                    <img src="images/names.png" alt="مخطوطة أسماء العروسين أحمد وميرة" decoding="async" class="w-56 sm:w-64 h-auto object-contain drop-shadow-sm">
-                </div>
-
-                <div class="space-y-2 text-gold-700 font-tajawal w-full stagger-item" style="--reveal-delay: 420ms;">
-                    <p class="text-sm sm:text-base font-medium">وذلك بمشيئة الله</p>
-                    <p class="text-base sm:text-lg font-bold pt-0.5">يوم الخميس</p>
-                    <p class="text-lg sm:text-xl font-extrabold tracking-widest dir-ltr">26 . 11 . 2026</p>
-                    <p class="text-sm sm:text-base font-bold text-bronze/90 pt-0.5">في تمام الساعة 8:00 مساءً</p>
-                    <p class="text-sm sm:text-base font-medium pt-3 leading-relaxed max-w-[280px] mx-auto text-gold-700/90">
-                        حضوركم يكتمل به فرحنا وتكتمل به أجمل أوقاتنا
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- EVENT DETAILS SECTION -->
-        <section id="details" class="py-12 px-6 bg-[#eae3dc] text-center reveal relative z-10">
-            <div class="max-w-xs mx-auto space-y-5">
-                <div class="space-y-2 stagger-item" style="--reveal-delay: 80ms;">
-                    <h2 class="section-title text-gold-700">موقع الحفل</h2>
-                    <div class="flex items-center justify-center">
-                        <img src="images/divider.png" alt="فاصل زخرفي" decoding="async" class="w-32 h-auto object-contain opacity-75">
-                    </div>
-                </div>
-
-                <div class="w-full my-2 flex items-center justify-center soft-zoom-item" style="--reveal-delay: 180ms;">
-                    <img src="images/venue.png" alt="منزل أهل العروس" decoding="async" class="w-full h-auto object-contain rounded-2xl shadow-sm">
-                </div>
-
-                <div class="space-y-1 text-sm text-bronze/90 font-tajawal py-1 stagger-item" style="--reveal-delay: 260ms;">
-                    <p class="font-bold text-base sm:text-lg text-gold-700">منزل أهل العروس</p>
-                    <p class="text-xs sm:text-sm leading-relaxed text-bronze/80">الساعة 8:00 مساءً</p>
-                </div>
-
-                <div class="w-full my-2 flex items-center justify-center soft-zoom-item" style="--reveal-delay: 340ms;">
-                    <div class="relative w-full max-w-[310px] aspect-square rounded-[32px] overflow-hidden shadow-md flex items-center justify-center bg-[#eae3dc]">
-                        <div class="absolute inset-[3%] rounded-[28px] overflow-hidden">
-                            <iframe 
-                                title="خريطة موقع الحفل"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.52989182379!2d55.3283282!3d25.2190886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d4750bd729f%3A0xb24933a38caed9b6!2sDubai!5e0!3m2!1sar!2sae!4v1700000000000!5m2!1sar!2sae" 
-                                class="w-full h-full border-0 grayscale-[20%] contrast-[105%]" 
-                                allowfullscreen="" 
-                                loading="eager" 
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                        <img src="images/map-frame.png" alt="إطار الخريطة الذهبي" decoding="async" class="absolute inset-0 w-full h-full object-fill pointer-events-none z-10">
-                    </div>
-                </div>
-
-                <div class="pt-2 flex flex-col items-center gap-3 max-w-[260px] mx-auto stagger-item" style="--reveal-delay: 420ms;">
-                    <a href="https://maps.google.com/?q=25.2190886,55.3283282" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-6 border border-gold-600/70 hover:bg-gold-500/10 text-gold-700 rounded-full text-center text-xs sm:text-sm font-tajawal font-bold uppercase transition duration-300">
-                        موقع الحفل (Map)
-                    </a>
-                    <a id="addToCalendar" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-4 text-gold-700/90 hover:text-gold-700 rounded-full text-center text-xs sm:text-sm font-bold font-tajawal transition flex items-center justify-center gap-1.5">
-                        <i data-lucide="calendar-plus" class="w-4 h-4"></i>
-                        إضافة للتقويم
-                    </a>
-                </div>
-            </div>
-        </section>
-
         <!-- HONOUR & CHILDREN NOTE SECTION -->
         <section id="honourNoteSection" class="py-16 px-8 sm:px-10 bg-[#eae3dc] text-center relative overflow-hidden reveal z-10">
             <!-- Background Image -->
@@ -538,7 +483,12 @@
         <!-- RSVP SECTION -->
         <section id="rsvp" class="py-10 px-6 bg-[#eae3dc] reveal z-10">
             <div class="max-w-[320px] mx-auto space-y-5">
-                <div class="w-full flex justify-center items-center pt-2 soft-zoom-item" style="--reveal-delay: 80ms;">
+                <!-- RSVP Notice Icon Above Section -->
+                <div class="w-full flex justify-center items-center soft-zoom-item" style="--reveal-delay: 40ms;">
+                    <img src="images/rsvp-notice.png" alt="تنويه عدم اصطحاب الأطفال والعاملات ومنع التصوير" decoding="async" class="w-44 sm:w-52 h-auto object-contain mix-blend-multiply filter drop-shadow-sm">
+                </div>
+
+                <div class="w-full flex justify-center items-center pt-1 soft-zoom-item" style="--reveal-delay: 80ms;">
                     <img src="images/chair.png" alt="كرسي الحفل" decoding="async" class="w-24 sm:w-28 h-auto object-contain filter drop-shadow-sm">
                 </div>
 
@@ -634,8 +584,12 @@
             <img src="images/clouds.png" alt="غيوم" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-90 pointer-events-none z-0">
             <div class="clouds-fade-top"></div>
 
-            <div class="relative z-10 space-y-5 max-w-xs mx-auto flex flex-col items-center">
-                <p class="text-xl sm:text-2xl text-gold-700 font-free-calligraphy leading-relaxed pt-2 font-bold stagger-item" style="--reveal-delay: 100ms;">
+            <div class="relative z-10 space-y-4 max-w-xs mx-auto flex flex-col items-center">
+                <span class="luxury-script-text text-xl sm:text-2xl tracking-widest dir-ltr inline-block stagger-item" style="--reveal-delay: 60ms;">
+                    26.11.2026
+                </span>
+
+                <p class="text-xl sm:text-2xl text-gold-700 font-free-calligraphy leading-relaxed pt-1 font-bold stagger-item" style="--reveal-delay: 140ms;">
                     حضوركم هو أجمل هدية تزيّن بداية رحلتنا
                 </p>
 
@@ -883,14 +837,6 @@
             });
 
             window.addEventListener('beforeunload', stopCountdown);
-
-            const addToCalBtn = document.getElementById('addToCalendar');
-            if (addToCalBtn) {
-                const calTitle = encodeURIComponent("حفل ملجة وعقد قران أحمد & ميرة");
-                const calDetails = encodeURIComponent("تتشرف أم إبراهيم بدعوتكم لحضور حفل ملجة وعقد قران أحمد وميرة في منزل أهل العروس.");
-                const calLocation = encodeURIComponent("منزل أهل العروس");
-                addToCalBtn.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${calTitle}&dates=20261126T160000Z/20261126T200000Z&details=${calDetails}&location=${calLocation}`;
-            }
 
             let currentGuestsCount = 2;
             const guestsDisplay = document.getElementById('guestsDisplay');
