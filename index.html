@@ -224,13 +224,84 @@
             will-change: auto;
         }
 
+        /* Distributed Luxury Effects */
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes subtleGoldGlow {
+            0%, 100% {
+                text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9), 0 0 8px rgba(179, 139, 77, 0.12);
+            }
+            50% {
+                text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 0 16px rgba(179, 139, 77, 0.34);
+            }
+        }
+
+        @keyframes softCardSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(18px) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        .motion-float-gentle.is-visible {
+            animation: gentleFloat 4.8s ease-in-out infinite;
+        }
+
+        .motion-gold-glow.is-visible {
+            animation: subtleGoldGlow 3.6s ease-in-out infinite;
+        }
+
+        .motion-slide-in {
+            opacity: 0;
+            transform: translateX(18px) scale(0.97);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: var(--reveal-delay, 0ms);
+            will-change: opacity, transform;
+        }
+
+        .motion-slide-in.is-visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            animation: softCardSlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) both, gentleFloat 5.2s ease-in-out calc(var(--reveal-delay, 0ms) + 900ms) infinite;
+            will-change: auto;
+        }
+
+        .motion-verse-line {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: var(--line-delay, 0ms);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active .motion-verse-line,
+        .motion-verse-line.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            will-change: auto;
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .reveal,
             .stagger-item,
-            .soft-zoom-item {
+            .soft-zoom-item,
+            .motion-slide-in,
+            .motion-verse-line {
                 opacity: 1 !important;
                 transform: none !important;
                 transition: none !important;
+                animation: none !important;
             }
         }
 
@@ -347,15 +418,15 @@
             <div class="relative z-10 max-w-sm mx-auto space-y-6 flex flex-col items-center justify-start pt-6 w-full">
                 
                 <!-- Welcome Verse & Divider -->
-                <div class="space-y-4 pt-2 stagger-item" style="--reveal-delay: 120ms;">
+                <div class="space-y-4 pt-2">
                     <div class="font-naskh-kashida text-base sm:text-lg leading-loose max-w-[330px] mx-auto px-2 space-y-1 text-center">
-                        <p>يَـــــوْمٌ مٌـخْـتَـلِـفٌ وَ لَـيْـلَـةٌ جَـمِـيـلَـــــةْ</p>
-                        <p>يُـــضْـوِي الـفَـرَحُ بِـعَـالِـي سَـمَـاهَـــــا</p>
-                        <p>مِـنْ قَـلْـبٍ يَـغْـمُـرُهُ الـسَّـعَـادَةُ وَالـحُـبُّ</p>
+                        <p class="motion-verse-line" style="--line-delay: 120ms;">يَـــــوْمٌ مٌـخْـتَـلِـفٌ وَ لَـيْـلَـةٌ جَـمِـيـلَـــــةْ</p>
+                        <p class="motion-verse-line" style="--line-delay: 240ms;">يُـــضْـوِي الـفَـرَحُ بِـعَـالِـي سَـمَـاهَـــــا</p>
+                        <p class="motion-verse-line" style="--line-delay: 360ms;">مِـنْ قَـلْـبٍ يَـغْـمُـرُهُ الـسَّـعَـادَةُ وَالـحُـبُّ</p>
                     </div>
 
                     <!-- Divider Image -->
-                    <div class="flex items-center justify-center pt-2 soft-zoom-item" style="--reveal-delay: 260ms;">
+                    <div class="flex items-center justify-center pt-2 soft-zoom-item" style="--reveal-delay: 440ms;">
                         <img src="images/divider.png" alt="فاصل زخرفي" decoding="async" class="w-36 h-auto object-contain opacity-85">
                     </div>
                 </div>
@@ -363,8 +434,8 @@
                 <!-- Invitation Texts & Graphics Below Divider -->
                 <div class="space-y-5 pt-2 w-full flex flex-col items-center">
                     <div class="space-y-1.5 text-gold-700 font-tajawal w-full flex flex-col items-center stagger-item" style="--reveal-delay: 320ms;">
-                        <p class="text-base sm:text-lg font-bold tracking-tight pt-0.5">تتشــــــــــــــرف</p>
-                        <div class="pt-2 flex justify-center items-center soft-zoom-item" style="--reveal-delay: 380ms;">
+                        <p class="text-base sm:text-lg font-bold tracking-tight pt-0.5 motion-gold-glow">تتشــــــــــــــرف</p>
+                        <div class="pt-2 flex justify-center items-center soft-zoom-item motion-float-gentle" style="--reveal-delay: 380ms;">
                             <img src="images/um-ibrahim.png" alt="أم إبراهيم" decoding="async" class="w-36 sm:w-44 h-auto object-contain filter drop-shadow-sm">
                         </div>
                     </div>
@@ -375,25 +446,25 @@
                         </p>
                     </div>
 
-                    <div class="py-2 flex justify-center items-center w-full soft-zoom-item" style="--reveal-delay: 500ms;">
+                    <div class="py-2 flex justify-center items-center w-full soft-zoom-item motion-float-gentle" style="--reveal-delay: 500ms;">
                         <img src="images/names.png" alt="مخطوطة أسماء العروسين أحمد وميرة" decoding="async" class="w-56 sm:w-64 h-auto object-contain drop-shadow-sm">
                     </div>
 
                     <div class="space-y-4 text-gold-700 font-tajawal w-full stagger-item" style="--reveal-delay: 560ms;">
-                        <p class="text-sm sm:text-base font-medium">وذلك بمشيئة الله</p>
+                        <p class="text-sm sm:text-base font-medium motion-gold-glow">وذلك بمشيئة الله</p>
 
                         <div class="grid grid-cols-3 gap-2 items-start justify-items-center pt-2 max-w-[330px] mx-auto w-full">
-                            <div class="flex flex-col items-center gap-1.5 soft-zoom-item" style="--reveal-delay: 600ms;">
+                            <div class="flex flex-col items-center gap-1.5 soft-zoom-item motion-float-gentle" style="--reveal-delay: 600ms;">
                                 <img src="images/icon-day.png" alt="يوم الخميس" decoding="async" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mix-blend-multiply">
                                 <span class="text-xs sm:text-sm font-bold text-gold-700">يوم الخميس</span>
                             </div>
 
-                            <div class="flex flex-col items-center gap-1.5 soft-zoom-item" style="--reveal-delay: 660ms;">
+                            <div class="flex flex-col items-center gap-1.5 soft-zoom-item motion-float-gentle" style="--reveal-delay: 680ms;">
                                 <img src="images/icon-date.png" alt="26.11.2026" decoding="async" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mix-blend-multiply">
                                 <span class="text-xs sm:text-sm font-bold text-gold-700 dir-ltr">26.11.2026</span>
                             </div>
 
-                            <div class="flex flex-col items-center gap-1.5 soft-zoom-item" style="--reveal-delay: 720ms;">
+                            <div class="flex flex-col items-center gap-1.5 soft-zoom-item motion-float-gentle" style="--reveal-delay: 760ms;">
                                 <img src="images/icon-time.png" alt="8:00 مساءً" decoding="async" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mix-blend-multiply">
                                 <span class="text-xs sm:text-sm font-bold text-bronze/90">8:00 مساءً</span>
                             </div>
@@ -408,7 +479,7 @@
         <section id="countdownSection" class="relative pt-12 pb-10 px-0 text-center bg-[#eae3dc] flex flex-col items-center justify-center overflow-hidden reveal z-20">
             <div class="relative z-10 w-full flex flex-col items-center">
                 <div class="space-y-2 mb-8 px-4 stagger-item" style="--reveal-delay: 80ms;">
-                    <h2 class="section-title text-gold-700">الوقت المتبقي</h2>
+                    <h2 class="section-title text-gold-700 motion-gold-glow">الوقت المتبقي</h2>
                     <div class="flex items-center justify-center pt-1 px-4">
                         <img src="images/divider.png" alt="فاصل زخرفي" decoding="async" class="w-32 h-auto object-contain opacity-75">
                     </div>
@@ -474,7 +545,7 @@
             <img src="images/dress-flower-bl.png" alt="ورود الزاوية السفلى اليسرى" decoding="async" class="absolute bottom-0 -left-2 w-36 sm:w-44 h-auto object-contain pointer-events-none z-20 opacity-95 soft-zoom-item" style="--reveal-delay: 200ms;">
 
             <div class="relative z-10 max-w-[235px] sm:max-w-[250px] mx-auto flex flex-col items-center justify-center py-6 stagger-item" style="--reveal-delay: 160ms;">
-                <p class="luxury-script-text text-lg sm:text-xl leading-relaxed text-center">
+                <p class="luxury-script-text text-lg sm:text-xl leading-relaxed text-center motion-gold-glow">
                     نتشرف بحضوركم لمشاركتنا فرحة عقد القران، ونلتمس منكم العذر لعدم اصطحاب الأطفال حفاظاً على هدوء الأجواء
                 </p>
             </div>
@@ -484,11 +555,11 @@
         <section id="rsvp" class="py-10 px-6 bg-[#eae3dc] reveal z-10">
             <div class="max-w-[320px] mx-auto space-y-5">
                 <!-- RSVP Notice Icon Above Section -->
-                <div class="w-full flex justify-center items-center soft-zoom-item" style="--reveal-delay: 40ms;">
+                <div class="w-full flex justify-center items-center motion-slide-in" style="--reveal-delay: 60ms;">
                     <img src="images/rsvp-notice.png" alt="تنويه عدم اصطحاب الأطفال والعاملات ومنع التصوير" decoding="async" class="w-44 sm:w-52 h-auto object-contain mix-blend-multiply filter drop-shadow-sm">
                 </div>
 
-                <div class="w-full flex justify-center items-center pt-1 soft-zoom-item" style="--reveal-delay: 80ms;">
+                <div class="w-full flex justify-center items-center pt-1 soft-zoom-item motion-float-gentle" style="--reveal-delay: 120ms;">
                     <img src="images/chair.png" alt="كرسي الحفل" decoding="async" class="w-24 sm:w-28 h-auto object-contain filter drop-shadow-sm">
                 </div>
 
@@ -585,15 +656,15 @@
             <div class="clouds-fade-top"></div>
 
             <div class="relative z-10 space-y-4 max-w-xs mx-auto flex flex-col items-center">
-                <span class="luxury-script-text text-xl sm:text-2xl tracking-widest dir-ltr inline-block stagger-item" style="--reveal-delay: 60ms;">
+                <span class="luxury-script-text text-xl sm:text-2xl tracking-widest dir-ltr inline-block stagger-item motion-gold-glow" style="--reveal-delay: 60ms;">
                     26.11.2026
                 </span>
 
-                <p class="text-xl sm:text-2xl text-gold-700 font-free-calligraphy leading-relaxed pt-1 font-bold stagger-item" style="--reveal-delay: 140ms;">
+                <p class="text-xl sm:text-2xl text-gold-700 font-free-calligraphy leading-relaxed pt-1 font-bold stagger-item motion-gold-glow" style="--reveal-delay: 140ms;">
                     حضوركم هو أجمل هدية تزيّن بداية رحلتنا
                 </p>
 
-                <div class="pt-1 soft-zoom-item" style="--reveal-delay: 240ms;">
+                <div class="pt-1 soft-zoom-item motion-float-gentle" style="--reveal-delay: 240ms;">
                     <img src="images/monogram.png" alt="شعار الأسماء" decoding="async" class="w-10 sm:w-12 h-auto object-contain filter drop-shadow-sm opacity-90">
                 </div>
             </div>
@@ -730,14 +801,14 @@
             }
 
             const revealElements = document.querySelectorAll('.reveal');
-            const detailMotionItems = document.querySelectorAll('.stagger-item, .soft-zoom-item');
+            const detailMotionItems = document.querySelectorAll('.stagger-item, .soft-zoom-item, .motion-slide-in, .motion-verse-line');
 
             if ('IntersectionObserver' in window) {
                 const sectionObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add('active');
-                            entry.target.querySelectorAll('.stagger-item, .soft-zoom-item').forEach(item => {
+                            entry.target.querySelectorAll('.stagger-item, .soft-zoom-item, .motion-slide-in, .motion-verse-line').forEach(item => {
                                 item.classList.add('is-visible');
                             });
                             sectionObserver.unobserve(entry.target);
