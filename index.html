@@ -182,8 +182,8 @@
         /* Scroll Reveal Animation Styles */
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(22px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
         }
 
@@ -191,6 +191,47 @@
             opacity: 1;
             transform: translateY(0);
             will-change: auto;
+        }
+
+        /* Staggered Elements & Text Reveal on Scroll */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: var(--reveal-delay, 0ms);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active .stagger-item,
+        .stagger-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            will-change: auto;
+        }
+
+        .soft-zoom-item {
+            opacity: 0;
+            transform: scale(0.965) translateY(12px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: var(--reveal-delay, 0ms);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active .soft-zoom-item,
+        .soft-zoom-item.is-visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            will-change: auto;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal,
+            .stagger-item,
+            .soft-zoom-item {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
         }
 
         .circle-container {
@@ -306,21 +347,21 @@
             <div class="relative z-10 max-w-sm mx-auto space-y-6 flex flex-col items-center justify-start pt-4">
                 
                 <!-- Main Invitation Verses -->
-                <div class="luxury-script-text text-xl sm:text-2xl space-y-2 leading-relaxed max-w-[340px] mx-auto">
+                <div class="luxury-script-text text-xl sm:text-2xl space-y-2 leading-relaxed max-w-[340px] mx-auto stagger-item" style="--reveal-delay: 80ms;">
                     <p>في ليلةٍ خَطّهــا القَدر بأجمَــل الألـوانِ،</p>
                     <p>تلتَقــي القُلــوبُ لِتَكتبَ بِدايَــة فَصـلٍ جَديد</p>
                     <p>مِلؤُه المَحبَة والأنــس، بِوجود مِن نُحـــبْ</p>
                 </div>
 
                 <!-- Highlighted Date -->
-                <div class="py-1">
+                <div class="py-1 stagger-item" style="--reveal-delay: 200ms;">
                     <span class="luxury-script-text text-2xl sm:text-3xl tracking-widest dir-ltr inline-block">
                         26.11.2026
                     </span>
                 </div>
 
                 <!-- Updated Welcome Verse -->
-                <div class="space-y-4 pt-2">
+                <div class="space-y-4 pt-2 stagger-item" style="--reveal-delay: 320ms;">
                     <div class="font-naskh-kashida text-base sm:text-lg leading-loose max-w-[330px] mx-auto px-2 space-y-1 text-center">
                         <p>يوم مختلف و ليلة جميلة</p>
                         <p>يضوي الفرح بعالي سماها</p>
@@ -328,7 +369,7 @@
                     </div>
 
                     <!-- Divider Image -->
-                    <div class="flex items-center justify-center pt-2">
+                    <div class="flex items-center justify-center pt-2 soft-zoom-item" style="--reveal-delay: 420ms;">
                         <img src="images/divider.png" alt="فاصل زخرفي" decoding="async" class="w-36 h-auto object-contain opacity-85">
                     </div>
                 </div>
@@ -339,7 +380,7 @@
         <!-- COUNTDOWN TIMER SECTION -->
         <section id="countdownSection" class="relative pt-12 pb-10 px-0 text-center bg-[#eae3dc] flex flex-col items-center justify-center overflow-hidden reveal z-20">
             <div class="relative z-10 w-full flex flex-col items-center">
-                <div class="space-y-2 mb-8 px-4">
+                <div class="space-y-2 mb-8 px-4 stagger-item" style="--reveal-delay: 80ms;">
                     <h2 class="section-title text-gold-700">الوقت المتبقي</h2>
                     <div class="flex items-center justify-center pt-1 px-4">
                         <img src="images/divider.png" alt="فاصل زخرفي" decoding="async" class="w-32 h-auto object-contain opacity-75">
@@ -347,7 +388,7 @@
                 </div>
 
                 <div id="countdown" class="grid grid-cols-4 gap-1.5 sm:gap-3 max-w-[360px] mx-auto px-2 sm:px-4 w-full justify-items-center">
-                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col items-center soft-zoom-item" style="--reveal-delay: 140ms;">
                         <div class="circle-container flex items-center justify-center">
                             <svg class="w-full h-full" viewBox="0 0 80 80">
                                 <circle class="circle-bg" cx="40" cy="40" r="36" />
@@ -358,7 +399,7 @@
                         <span class="text-xs sm:text-sm text-gold-700 font-bold font-tajawal mt-2">يوم</span>
                     </div>
 
-                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col items-center soft-zoom-item" style="--reveal-delay: 220ms;">
                         <div class="circle-container flex items-center justify-center">
                             <svg class="w-full h-full" viewBox="0 0 80 80">
                                 <circle class="circle-bg" cx="40" cy="40" r="36" />
@@ -369,7 +410,7 @@
                         <span class="text-xs sm:text-sm text-gold-700 font-bold font-tajawal mt-2">ساعة</span>
                     </div>
 
-                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col items-center soft-zoom-item" style="--reveal-delay: 300ms;">
                         <div class="circle-container flex items-center justify-center">
                             <svg class="w-full h-full" viewBox="0 0 80 80">
                                 <circle class="circle-bg" cx="40" cy="40" r="36" />
@@ -380,7 +421,7 @@
                         <span class="text-xs sm:text-sm text-gold-700 font-bold font-tajawal mt-2">دقيقة</span>
                     </div>
 
-                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col items-center soft-zoom-item" style="--reveal-delay: 380ms;">
                         <div class="circle-container flex items-center justify-center">
                             <svg class="w-full h-full" viewBox="0 0 80 80">
                                 <circle class="circle-bg" cx="40" cy="40" r="36" />
@@ -399,25 +440,25 @@
             <img src="images/names-bg.png" alt="خلفية الأسماء" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-100 pointer-events-none z-0">
 
             <div class="relative z-10 space-y-5 max-w-sm mx-auto flex flex-col items-center w-full">
-                <div class="space-y-1.5 text-gold-700 font-tajawal w-full flex flex-col items-center">
+                <div class="space-y-1.5 text-gold-700 font-tajawal w-full flex flex-col items-center stagger-item" style="--reveal-delay: 80ms;">
                     <p class="text-xs sm:text-sm font-normal tracking-wide">بكل حب ومودة</p>
                     <p class="text-base sm:text-lg font-bold tracking-tight pt-0.5">تتشرف</p>
-                    <div class="pt-1 flex justify-center items-center">
+                    <div class="pt-1 flex justify-center items-center soft-zoom-item" style="--reveal-delay: 180ms;">
                         <img src="images/um-ibrahim.png" alt="أم إبراهيم" decoding="async" class="w-36 sm:w-44 h-auto object-contain filter drop-shadow-sm">
                     </div>
                 </div>
 
-                <div>
+                <div class="stagger-item" style="--reveal-delay: 260ms;">
                     <p class="text-xs sm:text-sm font-normal text-gold-700 font-tajawal tracking-wide">
                         بدعوتكم لحضور حفل ملجة وعقد قران
                     </p>
                 </div>
 
-                <div class="py-2 flex justify-center items-center w-full">
+                <div class="py-2 flex justify-center items-center w-full soft-zoom-item" style="--reveal-delay: 340ms;">
                     <img src="images/names.png" alt="مخطوطة أسماء العروسين أحمد وميرة" decoding="async" class="w-56 sm:w-64 h-auto object-contain drop-shadow-sm">
                 </div>
 
-                <div class="space-y-2 text-gold-700 font-tajawal w-full">
+                <div class="space-y-2 text-gold-700 font-tajawal w-full stagger-item" style="--reveal-delay: 420ms;">
                     <p class="text-sm sm:text-base font-medium">وذلك بمشيئة الله</p>
                     <p class="text-base sm:text-lg font-bold pt-0.5">يوم الخميس</p>
                     <p class="text-lg sm:text-xl font-extrabold tracking-widest dir-ltr">26 . 11 . 2026</p>
@@ -432,23 +473,23 @@
         <!-- EVENT DETAILS SECTION -->
         <section id="details" class="py-12 px-6 bg-[#eae3dc] text-center reveal relative z-10">
             <div class="max-w-xs mx-auto space-y-5">
-                <div class="space-y-2">
+                <div class="space-y-2 stagger-item" style="--reveal-delay: 80ms;">
                     <h2 class="section-title text-gold-700">موقع الحفل</h2>
                     <div class="flex items-center justify-center">
                         <img src="images/divider.png" alt="فاصل زخرفي" decoding="async" class="w-32 h-auto object-contain opacity-75">
                     </div>
                 </div>
 
-                <div class="w-full my-2 flex items-center justify-center">
+                <div class="w-full my-2 flex items-center justify-center soft-zoom-item" style="--reveal-delay: 180ms;">
                     <img src="images/venue.png" alt="منزل أهل العروس" decoding="async" class="w-full h-auto object-contain rounded-2xl shadow-sm">
                 </div>
 
-                <div class="space-y-1 text-sm text-bronze/90 font-tajawal py-1">
+                <div class="space-y-1 text-sm text-bronze/90 font-tajawal py-1 stagger-item" style="--reveal-delay: 260ms;">
                     <p class="font-bold text-base sm:text-lg text-gold-700">منزل أهل العروس</p>
                     <p class="text-xs sm:text-sm leading-relaxed text-bronze/80">الساعة 8:00 مساءً</p>
                 </div>
 
-                <div class="w-full my-2 flex items-center justify-center">
+                <div class="w-full my-2 flex items-center justify-center soft-zoom-item" style="--reveal-delay: 340ms;">
                     <div class="relative w-full max-w-[310px] aspect-square rounded-[32px] overflow-hidden shadow-md flex items-center justify-center bg-[#eae3dc]">
                         <div class="absolute inset-[3%] rounded-[28px] overflow-hidden">
                             <iframe 
@@ -464,7 +505,7 @@
                     </div>
                 </div>
 
-                <div class="pt-2 flex flex-col items-center gap-3 max-w-[260px] mx-auto">
+                <div class="pt-2 flex flex-col items-center gap-3 max-w-[260px] mx-auto stagger-item" style="--reveal-delay: 420ms;">
                     <a href="https://maps.google.com/?q=25.2190886,55.3283282" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-6 border border-gold-600/70 hover:bg-gold-500/10 text-gold-700 rounded-full text-center text-xs sm:text-sm font-tajawal font-bold uppercase transition duration-300">
                         موقع الحفل (Map)
                     </a>
@@ -481,13 +522,13 @@
             <!-- Background Image -->
             <img src="images/welcome-bg.png" alt="خلفية القسم" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-100 pointer-events-none z-0">
 
-            <!-- Top Right Corner Flower (Resized to avoid overlapping text) -->
-            <img src="images/dress-flower-tr.png" alt="ورود الزاوية العليا اليمنى" decoding="async" class="absolute top-0 right-0 w-28 sm:w-32 h-auto object-contain pointer-events-none z-20 opacity-95">
+            <!-- Top Right Corner Flower -->
+            <img src="images/dress-flower-tr.png" alt="ورود الزاوية العليا اليمنى" decoding="async" class="absolute top-0 right-0 w-28 sm:w-32 h-auto object-contain pointer-events-none z-20 opacity-95 soft-zoom-item" style="--reveal-delay: 120ms;">
 
             <!-- Bottom Left Corner Flower -->
-            <img src="images/dress-flower-bl.png" alt="ورود الزاوية السفلى اليسرى" decoding="async" class="absolute bottom-0 -left-2 w-36 sm:w-44 h-auto object-contain pointer-events-none z-20 opacity-95">
+            <img src="images/dress-flower-bl.png" alt="ورود الزاوية السفلى اليسرى" decoding="async" class="absolute bottom-0 -left-2 w-36 sm:w-44 h-auto object-contain pointer-events-none z-20 opacity-95 soft-zoom-item" style="--reveal-delay: 200ms;">
 
-            <div class="relative z-10 max-w-[235px] sm:max-w-[250px] mx-auto flex flex-col items-center justify-center py-6">
+            <div class="relative z-10 max-w-[235px] sm:max-w-[250px] mx-auto flex flex-col items-center justify-center py-6 stagger-item" style="--reveal-delay: 160ms;">
                 <p class="luxury-script-text text-lg sm:text-xl leading-relaxed text-center">
                     نتشرف بحضوركم لمشاركتنا فرحة عقد القران، ونلتمس منكم العذر لعدم اصطحاب الأطفال حفاظاً على هدوء الأجواء
                 </p>
@@ -497,15 +538,15 @@
         <!-- RSVP SECTION -->
         <section id="rsvp" class="py-10 px-6 bg-[#eae3dc] reveal z-10">
             <div class="max-w-[320px] mx-auto space-y-5">
-                <div class="w-full flex justify-center items-center pt-2">
+                <div class="w-full flex justify-center items-center pt-2 soft-zoom-item" style="--reveal-delay: 80ms;">
                     <img src="images/chair.png" alt="كرسي الحفل" decoding="async" class="w-24 sm:w-28 h-auto object-contain filter drop-shadow-sm">
                 </div>
 
-                <div class="text-center space-y-1">
+                <div class="text-center space-y-1 stagger-item" style="--reveal-delay: 160ms;">
                     <h2 class="section-title text-2xl sm:text-3xl text-rsvpDark tracking-tight">يرجى تأكيد الحضور</h2>
                 </div>
 
-                <form id="rsvpForm" class="space-y-4">
+                <form id="rsvpForm" class="space-y-4 stagger-item" style="--reveal-delay: 240ms;">
                     <div class="space-y-1.5">
                         <div class="text-right space-y-0.5 pr-1">
                             <label for="guestName" class="text-sm font-bold text-rsvpDark block">الاسم الكامل</label>
@@ -594,11 +635,11 @@
             <div class="clouds-fade-top"></div>
 
             <div class="relative z-10 space-y-5 max-w-xs mx-auto flex flex-col items-center">
-                <p class="text-xl sm:text-2xl text-gold-700 font-free-calligraphy leading-relaxed pt-2 font-bold">
+                <p class="text-xl sm:text-2xl text-gold-700 font-free-calligraphy leading-relaxed pt-2 font-bold stagger-item" style="--reveal-delay: 100ms;">
                     حضوركم هو أجمل هدية تزيّن بداية رحلتنا
                 </p>
 
-                <div class="pt-1">
+                <div class="pt-1 soft-zoom-item" style="--reveal-delay: 240ms;">
                     <img src="images/monogram.png" alt="شعار الأسماء" decoding="async" class="w-10 sm:w-12 h-auto object-contain filter drop-shadow-sm opacity-90">
                 </div>
             </div>
@@ -735,19 +776,36 @@
             }
 
             const revealElements = document.querySelectorAll('.reveal');
+            const detailMotionItems = document.querySelectorAll('.stagger-item, .soft-zoom-item');
+
             if ('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver((entries) => {
+                const sectionObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add('active');
-                            observer.unobserve(entry.target);
+                            entry.target.querySelectorAll('.stagger-item, .soft-zoom-item').forEach(item => {
+                                item.classList.add('is-visible');
+                            });
+                            sectionObserver.unobserve(entry.target);
                         }
                     });
-                }, { rootMargin: '0px 0px -50px 0px', threshold: 0.05 });
+                }, { rootMargin: '0px 0px -45px 0px', threshold: 0.08 });
 
-                revealElements.forEach(el => observer.observe(el));
+                revealElements.forEach(el => sectionObserver.observe(el));
+
+                const itemObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            itemObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { rootMargin: '0px 0px -30px 0px', threshold: 0.12 });
+
+                detailMotionItems.forEach(item => itemObserver.observe(item));
             } else {
                 revealElements.forEach(el => el.classList.add('active'));
+                detailMotionItems.forEach(item => item.classList.add('is-visible'));
             }
 
             const eventDate = new Date('November 26, 2026 20:00:00').getTime();
